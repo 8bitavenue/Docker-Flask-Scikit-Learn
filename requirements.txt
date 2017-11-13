@@ -1,0 +1,11 @@
+# Multi-dimensional arrays
+numpy==1.13.3
+# Scientific computing
+scipy==1.0.0
+# Data manipulation and analysis
+pandas==0.21.0
+# Machine learning library
+scikit_learn==0.19.1
+# Micro web framework
+Flask==0.12.2
+
