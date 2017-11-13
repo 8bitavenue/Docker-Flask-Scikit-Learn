@@ -31,23 +31,23 @@ app = Flask(__name__)
 @app.route('/demo/api/v1.0/predict', methods=['GET'])
 def get_prediction():
 
-# We are using 3 features. For example:
-# purchase amount, country, IP address, etc
-param1 = float(request.args.get('p1'))
-param2 = float(request.args.get('p2'))
-param3 = float(request.args.get('p3'))
+	# We are using 3 features. For example:
+	# purchase amount, country, IP address, etc
+	param1 = float(request.args.get('p1'))
+	param2 = float(request.args.get('p2'))
+	param3 = float(request.args.get('p3'))
 
-# Load model from disk
-logReg = pickle.load(open('logReg.pkl', 'rb'))
+	# Load model from disk
+	logReg = pickle.load(open('logReg.pkl', 'rb'))
 
-# Predict
-pred = logReg.predict([[param1, param2, param3]])[0]
-if pred == 0:
-return "Transaction is legit"
-else:
-return "Transaction is Fraud"
+	# Predict
+	pred = logReg.predict([[param1, param2, param3]])[0]
+	if pred == 0:
+		return "Transaction is legit"
+	else:
+		return "Transaction is Fraud"
 
 # Main app
 if __name__ == '__main__':
-app.run(port=7777,host='0.0.0.0’)
+	app.run(port=7777,host='0.0.0.0')
 
